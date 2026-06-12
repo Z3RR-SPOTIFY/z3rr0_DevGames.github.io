@@ -6,20 +6,28 @@
     <title>Z3RR0_DEV // Portfolio</title>
     <style>
         :root {
-            --bg-main: #0a0b0d;
-            --bg-card: #12141c;
-            --bg-card-hover: #171a24;
+            /* --- MODIFIED REFINED TECH COLOR MATRIX --- */
+            --bg-main: #07080a;
+            --bg-card: rgba(18, 20, 28, 0.75); /* Translucent glass effect */
+            --bg-card-hover: rgba(23, 26, 36, 0.9);
             --text-primary: #f3f4f6;
             --text-secondary: #9ca3af;
             --accent-cyan: #06b6d4;
             --accent-indigo: #6366f1;
             --accent-slate: #64748b;
             --border-color: rgba(255, 255, 255, 0.05);
-            --border-hover: rgba(255, 255, 255, 0.12);
+            --border-hover: rgba(255, 255, 255, 0.15);
         }
 
         body {
             background-color: var(--bg-main);
+            /* --- CSS ENGINEERED BLUEPRINT GRID PATTERN --- */
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            background-attachment: fixed;
             color: var(--text-primary);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -31,7 +39,7 @@
         header {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 80px 40px 40px 40px;
+            padding: 100px 40px 40px 40px;
             text-align: left;
         }
         h1 {
@@ -78,10 +86,12 @@
             align-items: stretch; 
         }
 
-        /* --- ULTRA-CLEAN MODERN CARDS --- */
+        /* --- MODERN CARD DESIGNS WITH GLASS LAYERS --- */
         .game-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 12px;
             padding: 35px 30px;
             flex: 1; 
@@ -96,7 +106,7 @@
             transform: translateY(-4px);
             background-color: var(--bg-card-hover);
             border-color: var(--border-hover);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
@@ -121,7 +131,7 @@
             margin-bottom: 10px;
             font-size: 0.9rem;
             color: var(--text-secondary);
-            list-style-type: cubic-bezier;
+            list-style-type: square;
         }
         .features strong {
             color: var(--text-primary);
@@ -160,29 +170,30 @@
             background-color: #818cf8;
         }
         .btn-slate {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.04);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
         }
         .btn-slate:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.08);
         }
         
-        /* --- INACTIVE HOVER STATE CONTROL --- */
+        /* --- PIPELINE STATE CONTROL --- */
         .game-card.edition-tool {
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.01);
             border: 1px dashed var(--border-color);
+            backdrop-filter: blur(4px);
         }
         .game-card.edition-tool:hover {
             transform: none;
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.01);
             border-color: var(--border-color);
             box-shadow: none;
         }
 
         footer {
             max-width: 1300px;
-            margin: 100px auto 0 auto;
+            margin: 120px auto 0 auto;
             padding: 40px;
             font-size: 0.85rem;
             color: var(--text-secondary);
@@ -194,7 +205,7 @@
         /* --- MOBILE VIEWPORTS RULES --- */
         @media (max-width: 1024px) { 
             header {
-                padding: 50px 24px 20px 24px;
+                padding: 60px 24px 20px 24px;
             }
             .category-section {
                 padding: 0 24px;
@@ -243,7 +254,7 @@
 
                 <div class="button-group">
                     <a href="https://z3rr0-devgames.itch.io/nebula-strike-3d" class="btn btn-cyan" target="_blank">Launch Project (itch.io)</a>
-                    <a href="https://discord.gg/NbsZ48aecM" class="btn btn-slate" target="_blank">DISCORD</a>
+                    <a href="https://discord.gg/NbsZ48aecM" class="btn btn-slate" target="_blank">Join the Discord</a>
                 </div>
             </div>
 
@@ -262,7 +273,7 @@
 
                 <div class="button-group">
                     <a href="https://z3rr0-devgames.itch.io/nebula-strike" class="btn btn-cyan" target="_blank">Launch Project (itch.io)</a>
-                    <a href="https://discord.gg/NbsZ48aecM" class="btn btn-slate" target="_blank">DISCORD</a>
+                    <a href="https://discord.gg/NbsZ48aecM" class="btn btn-slate" target="_blank">Join the Discord</a>
                 </div>
             </div>
 
@@ -290,7 +301,7 @@
 
                 <div class="button-group">
                     <a href="https://github.com/z3rr0DevGames/z3rr0DevGames.github.io/releases/download/movie/app-debug.apk" class="btn btn-indigo">Download Application Package (6.9 MB)</a>
-                    <a href="https://discord.gg/NbsZ48aecM" class="btn btn-slate" target="_blank">DISCORD</a>
+                    <a href="https://discord.gg/NbsZ48aecM" class="btn btn-slate" target="_blank">Join the Discord</a>
                 </div>
             </div>
 
@@ -302,14 +313,14 @@
         <div class="category-title">🛠️ Utility & Development Tools</div>
         <div class="container">
 
-            <!-- HOVER STATE DASHED BOX HOLDER FOR FUTURE ADDITIONS -->
+            <!-- INACTIVE PIPELINE WORKSPACE HOLDER -->
             <div class="game-card edition-tool">
                 <div>
                     <h2>Developer Tools</h2>
                     <p>Systems, build engines, and automated utilities are currently in standard pipeline development stages.</p>
                 </div>
                 <div class="button-group">
-                    <span class="btn" style="background-color: rgba(255,255,255,0.02); color: var(--accent-slate); border: 1px dashed rgba(255,255,255,0.05); cursor: not-allowed;">Pipeline Idle</span>
+                    <span class="btn" style="background-color: rgba(255,255,255,0.01); color: var(--accent-slate); border: 1px dashed rgba(255,255,255,0.04); cursor: not-allowed;">Pipeline Idle</span>
                 </div>
             </div>
 
