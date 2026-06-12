@@ -6,27 +6,26 @@
     <title>Z3RR0_DEV // Portfolio</title>
     <style>
         :root {
-            /* --- MODIFIED REFINED TECH COLOR MATRIX --- */
             --bg-main: #07080a;
-            --bg-card: rgba(18, 20, 28, 0.75); /* Translucent glass effect */
-            --bg-card-hover: rgba(23, 26, 36, 0.9);
+            --bg-card: rgba(18, 20, 28, 0.65);
+            --bg-card-hover: rgba(23, 26, 36, 0.85);
             --text-primary: #f3f4f6;
             --text-secondary: #9ca3af;
             --accent-cyan: #06b6d4;
             --accent-indigo: #6366f1;
             --accent-slate: #64748b;
             --border-color: rgba(255, 255, 255, 0.05);
-            --border-hover: rgba(255, 255, 255, 0.15);
+            --border-hover: rgba(255, 255, 255, 0.12);
         }
 
         body {
             background-color: var(--bg-main);
-            /* --- CSS ENGINEERED BLUEPRINT GRID PATTERN --- */
             background-image: 
-                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px),
-                radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
-            background-size: 40px 40px, 40px 40px, 100% 100%;
+                linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px),
+                radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.07) 0%, transparent 50%),
+                radial-gradient(circle at 10% 40%, rgba(6, 182, 212, 0.03) 0%, transparent 40%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
             background-attachment: fixed;
             color: var(--text-primary);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -35,58 +34,146 @@
             line-height: 1.5;
         }
 
-        /* --- MODERN HEADER --- */
+        /* --- HEADER --- */
         header {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 100px 40px 40px 40px;
-            text-align: left;
+            padding: 80px 40px 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
-        h1 {
-            font-size: 2.2rem;
+        .header-main h1 {
+            font-size: 2.4rem;
             font-weight: 800;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
             margin: 0;
             color: var(--text-primary);
-            text-transform: uppercase;
         }
-        .subtitle {
+        .header-main .subtitle {
             color: var(--text-secondary);
             font-size: 1.05rem;
             margin-top: 6px;
             font-weight: 400;
         }
+        
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 182, 212, 0.06);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            letter-spacing: 0.05em;
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        /* --- MODERN SEARCH WRAPPER --- */
+        .search-wrapper {
+            max-width: 1300px;
+            margin: 10px auto 30px auto;
+            padding: 0 40px;
+        }
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 16px 12px 40px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            box-sizing: border-box;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+        .search-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+        }
+        .search-input::placeholder {
+            color: var(--accent-slate);
+        }
+        /* Minimal CSS Search Icon Overlay */
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--accent-slate);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .search-icon::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            bottom: -5px;
+            width: 6px;
+            height: 2px;
+            background: var(--accent-slate);
+            transform: rotate(45deg);
+        }
 
         /* --- CATEGORY SECTION SYSTEM --- */
         .category-section {
             max-width: 1300px;
-            margin: 40px auto 60px auto;
+            margin: 20px auto 40px auto;
             padding: 0 40px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .category-title {
             color: var(--text-primary);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px;
+            padding-bottom: 14px;
             margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+        }
+        .category-tag {
+            font-size: 0.7rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--text-secondary);
         }
         
-        /* --- FLEX RESPONSIVE GRID ENGINE --- */
+        /* --- RESPONSIVE GRID ENGINE --- */
         .container {
             display: flex;
             flex-direction: row;
             gap: 24px;
             justify-content: flex-start;
             align-items: stretch; 
+            flex-wrap: wrap; /* Allows remaining cards to structure correctly if one is hidden */
         }
 
-        /* --- MODERN CARD DESIGNS WITH GLASS LAYERS --- */
+        /* --- MODERN CARD DESIGNS --- */
         .game-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -95,26 +182,39 @@
             border-radius: 12px;
             padding: 35px 30px;
             flex: 1; 
+            min-width: 280px;
             max-width: calc(33.333% - 16px);
             display: flex;
             flex-direction: column;
             justify-content: space-between; 
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, transform 0.2s ease;
         }
 
         .game-card:hover {
             transform: translateY(-4px);
             background-color: var(--bg-card-hover);
             border-color: var(--border-hover);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: var(--accent-slate);
+            letter-spacing: 0.05em;
         }
 
         h2 {
             color: var(--text-primary);
             font-size: 1.4rem;
             font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 12px;
+            margin: 0 0 12px 0;
             letter-spacing: -0.01em;
         }
         p {
@@ -138,7 +238,7 @@
             font-weight: 500;
         }
 
-        /* --- MINIMALIST FLAT BUTTONS --- */
+        /* --- BUTTONS --- */
         .button-group {
             margin-top: auto; 
             display: flex;
@@ -178,7 +278,6 @@
             background-color: rgba(255, 255, 255, 0.08);
         }
         
-        /* --- PIPELINE STATE CONTROL --- */
         .game-card.edition-tool {
             background-color: rgba(255, 255, 255, 0.01);
             border: 1px dashed var(--border-color);
@@ -189,6 +288,16 @@
             background-color: rgba(255, 255, 255, 0.01);
             border-color: var(--border-color);
             box-shadow: none;
+        }
+
+        /* No results indicator layout */
+        #no-results-msg {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 40px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            display: none;
         }
 
         footer {
@@ -206,6 +315,11 @@
         @media (max-width: 1024px) { 
             header {
                 padding: 60px 24px 20px 24px;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .search-wrapper {
+                padding: 0 24px;
             }
             .category-section {
                 padding: 0 24px;
@@ -230,18 +344,42 @@
 <body>
 
     <header>
-        <h1>Z3RR0_DEV</h1>
-        <div class="subtitle">Software Engineering & Digital Product Development</div>
+        <div class="header-main">
+            <h1>Z3RR0_DEV</h1>
+            <div class="subtitle">Software Engineering & Digital Product Development</div>
+        </div>
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            <span>PORTFOLIO ACTIVE // 2026</span>
+        </div>
     </header>
+
+    <!-- NEW SEARCH INTERFACE COMPONENT -->
+    <div class="search-wrapper">
+        <div class="search-container">
+            <div class="search-icon"></div>
+            <input type="text" id="project-search" class="search-input" placeholder="Search systems, features, or engines...">
+        </div>
+    </div>
+
+    <!-- Container message if everything is filtered out -->
+    <div id="no-results-msg">No engineering pipelines match your query.</div>
 
     <!-- ================= CATEGORY 1: GAMES ================= -->
     <section class="category-section">
-        <div class="category-title">🕹️ Interactive Media</div>
+        <div class="category-title">
+            <span>Interactive Media</span>
+            <div class="category-tag">02 PROJECTS</div>
+        </div>
         <div class="container">
             
             <!-- NEBULA STRIKE 3D -->
             <div class="game-card">
                 <div>
+                    <div class="card-meta">
+                        <span class="meta-label">ENGINE // 2.5D SIM</span>
+                        <span class="meta-label" style="color: var(--accent-cyan);">v2.0 LIVE</span>
+                    </div>
                     <h2>Nebula Strike 3D</h2>
                     <p>A sophisticated 2.5D simulation engine balancing real-time flight metrics with mathematical passive resource allocation engines.</p>
                     
@@ -261,6 +399,10 @@
             <!-- NEBULA STRIKE -->
             <div class="game-card">
                 <div>
+                    <div class="card-meta">
+                        <span class="meta-label">ENGINE // ARCADE</span>
+                        <span class="meta-label">LEGACY CORE</span>
+                    </div>
                     <h2>Nebula Strike (Legacy)</h2>
                     <p>Arcade combat engine combined with persistent background multi-tier structural mining and refinery logic loops.</p>
                     
@@ -282,12 +424,19 @@
 
     <!-- ================= CATEGORY 2: APPLICATIONS ================= -->
     <section class="category-section">
-        <div class="category-title">📱 Production Software</div>
+        <div class="category-title">
+            <span>Production Software</span>
+            <div class="category-tag">01 DISTRIBUTION</div>
+        </div>
         <div class="container">
 
             <!-- MOVIE PLAYER -->
             <div class="game-card">
                 <div>
+                    <div class="card-meta">
+                        <span class="meta-label">PLATFORM // ANDROID</span>
+                        <span class="meta-label" style="color: var(--accent-indigo);">STABLE BUILD</span>
+                    </div>
                     <h2>Movie Player</h2>
                     <p>A zero-overhead, tracking-free Android container engineered for clean data parsing and media stream rendering.</p>
                     
@@ -310,12 +459,18 @@
 
     <!-- ================= CATEGORY 3: TOOLS ================= -->
     <section class="category-section">
-        <div class="category-title">🛠️ Utility & Development Tools</div>
+        <div class="category-title">
+            <span>Utility & Development Tools</span>
+            <div class="category-tag">STAGING</div>
+        </div>
         <div class="container">
 
             <!-- INACTIVE PIPELINE WORKSPACE HOLDER -->
             <div class="game-card edition-tool">
                 <div>
+                    <div class="card-meta">
+                        <span class="meta-label">REPOS // COMPILING</span>
+                    </div>
                     <h2>Developer Tools</h2>
                     <p>Systems, build engines, and automated utilities are currently in standard pipeline development stages.</p>
                 </div>
@@ -331,6 +486,52 @@
         <div>&copy; 2026 Z3RR0_DEV. All software rights reserved.</div>
         <div>System Status: Online</div>
     </footer>
+
+    <!-- --- LIGHTWEIGHT REAL-TIME SEARCH SCRIPT --- -->
+    <script>
+        document.getElementById('project-search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.game-card');
+            const sections = document.querySelectorAll('.category-section');
+            let totalVisibleCards = 0;
+
+            cards.forEach(card => {
+                // Read text contents from headings, body text, and specs lists
+                const cardText = card.textContent.toLowerCase();
+                
+                if (cardText.includes(query)) {
+                    card.style.display = 'flex';
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                    if (!card.classList.contains('edition-tool')) {
+                        totalVisibleCards++;
+                    }
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                }
+            });
+
+            // Clean up empty section wrappers dynamically
+            sections.forEach(section => {
+                const visibleCardsInSection = section.querySelectorAll('.game-card[style*="display: flex"]');
+                if (visibleCardsInSection.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+
+            // Display a backup empty-state message if everything gets hidden
+            const noResultsMsg = document.getElementById('no-results-msg');
+            if (totalVisibleCards === 0 && query !== '') {
+                noResultsMsg.style.display = 'block';
+            } else {
+                noResultsMsg.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 </html>
